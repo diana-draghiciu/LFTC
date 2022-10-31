@@ -1,0 +1,13 @@
+main():
+    int[] x
+    read x
+    int max
+    max=-1
+    for(elem in x){
+         if(elem is even){
+            if(elem isgt max){
+               max=elem
+            }
+         }
+    }
+    write max

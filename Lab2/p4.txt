@@ -1,0 +1,14 @@
+main():
+   int[ arr
+   int x
+   read arr
+   read x
+   int
+   p=
+   for(elem in arr)
+   	if(x isgte elem)
+		p=1
+   if(p is 0)
+	    write "yes
+   else
+        write "Condition not fulfilled"
