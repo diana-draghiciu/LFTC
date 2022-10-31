@@ -37,6 +37,12 @@ class Scanner:
             f.write('\n')
 
     def saveST(self,list, file):
+        """
+
+        :param list:
+        :param file:
+        :return:
+        """
         f = open(file, 'w')
         f.write(str(list))
 
@@ -58,17 +64,21 @@ class Scanner:
                     if line[i] not in self.tokens or (
                             i - 1 > 0 and line[i - 1] == '"'):
                         poz = self.symbolTable.hashFunction(line[i])
-                        if isinstance(line[i], int) or (i - 1 > 0 and line[i - 1] == '"'):
+                        if line[i].isdigit():
+                            if not self.constantTable.checkIfSymbolInST(line[i]):
+                                self.constantTable.addToST(line[i])
+                            self.pif.append({"constant": (poz, self.constantTable.getSymbolIndex(line[i]))})
+                        elif i - 1 > 0 and line[i - 1] == '"':
                             if i == len(line) - 1 or line[i + 1] != '"':
                                 self.exceptionList.append('Quote not ended on line ' + str(y))
-                            if not self.constantTable.checkIfSymbolInST(line[i]):
-                                self.constantTable.addToST(line[i], 0)
-                            self.pif.append({"constant": poz})
+                            elif not self.constantTable.checkIfSymbolInST(line[i]):
+                                self.constantTable.addToST(line[i])
+                            self.pif.append({"constant": (poz, self.constantTable.getSymbolIndex(line[i]))})
                         elif not self.symbolTable.checkIfSymbolInST(line[i]):
-                            self.symbolTable.addToST(line[i], 0)
-                            self.pif.append({"identifier": poz})
+                            self.symbolTable.addToST(line[i])
+                            self.pif.append({"identifier": (poz, self.symbolTable.getSymbolIndex(line[i]))})
                         else:
-                            self.pif.append({"identifier": poz})
+                            self.pif.append({"identifier": (poz, self.symbolTable.getSymbolIndex(line[i]))})
                     else:
                         if line[i] == 'int' or line[i] == 'string':
                             if i == len(line) - 1:

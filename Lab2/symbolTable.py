@@ -28,11 +28,11 @@ class ST:
         poz = self.hashFunction(symbol)
         if poz in self.table.keys():
             for elem in self.table[poz]:
-                if elem[0] == symbol:
+                if elem == symbol:
                     return True
         return False
 
-    def addToST(self, symbol, value):
+    def addToST(self, symbol):
         """
         Adds an identifier to the symbol table if it's symbol isn't already declared
         :param symbol: represents the identifier's symbol
@@ -44,28 +44,27 @@ class ST:
             self.table[poz] = []
 
         if not self.checkIfSymbolInST(symbol):
-            self.table[poz].append((symbol, value))
+            self.table[poz].append(symbol)
 
-    def getValue(self, symbol):
+    def getSymbols(self, poz):
         """
-        Gets the value of the given identifier's symbol
-        :param symbol: represents the identifier's symbol
-        :return: the identifier's value
+        Returns the list of symbols from the given position
+        :param poz: The key of the symbol table
+        :return: the list of symbols
         """
+        if poz in self.table.keys():
+            return self.table[poz]
+
+    def getSymbol(self, poz, index):
+        """
+        Returns the symbols from the given position
+        :param poz: The key of the symbol table
+        :param index: The position of the symbol in the list with the given key
+        :return: the symbol
+        """
+        return self.table[poz][index]
+
+    def getSymbolIndex(self, symbol):
         poz = self.hashFunction(symbol)
-        for (x, y) in self.table[poz]:
-            if x == symbol:
-                return y
-
-    # def setValue(self, symbol, value):
-    #     poz = self.hashFunction(symbol)
-    #     for (x, y) in self.table[poz]:
-    #         if x == symbol:
-    #             y=value
-    #
-    # def getSymbols(self, poz):
-    #     result = []
-    #     if poz in self.table.keys():
-    #         for elem in self.table[poz]:
-    #             result.append(elem[0])
-    #     return result
+        if poz in self.table.keys():
+            return self.table[poz].index(symbol)
