@@ -1,7 +1,8 @@
 main
 int
+int[]
 string
-char
+string[]
 [
 ]
 (
