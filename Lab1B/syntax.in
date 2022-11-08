@@ -1,0 +1,41 @@
+program = "main" "(" ")"  ":" stmtlist
+
+declaration = type " " identifier  				(int val, int[] val))
+
+type1 = "string" | "int" 			
+
+arraydecl = type1 "[" "]" 					(int[])
+
+type  = type1 | arraydecl					(int, int[])		
+
+stmtlist = stmt | stmt stmtlist				
+
+stmt = simplstmt | structstmt
+
+structstmt = ifstmt | whilestmt | forstmt | foreachstmt
+
+simplstmt = assignstmt | iostmt					(val=.., read/wrile val)
+
+assignstmt = identifier "=" expresion				(val=...)
+
+expression = expression ("+"|"-") term | term | ("even"|"odd")
+
+term = term ("*"|"/") factor | factor
+
+factor = "(" expression ")" | identifier | constant
+
+iostmt = "read" identifier | "write" (identifier| constant)	(read val)
+
+ifstmt = "if" "(" condition ")" "{" stmt "}" ["else" "{" stmt "}"]		if(...) stmt else stmt
+
+whilestmt = "while" "(" condition ")" "{" stmt "}"			while(...) stmt
+
+foreachstmt = "for" "(" identifier "in" identifier ")" "{" stmt "}"  	for(...) stmt
+
+forstmt = "for" "(" assignstmt ";" condition ";" assignstmt ")" "{" stmt "}"
+
+condition = expression relation expression  | condition logicalop condition
+
+relation = "islt" | "islte" | "is" | "isnot" | "isgte" | "isgt"
+
+logicalop = "or" | "and"
