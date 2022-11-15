@@ -1,9 +1,9 @@
 main():
-    int x
-    read x
+    int xa
+    read ax @
     if(x is odd){
 	    write "odd"
 	}
 	else{
-        write "even"
+        write xa
     }
