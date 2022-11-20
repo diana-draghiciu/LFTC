@@ -1,0 +1,9 @@
+main():
+    int 013
+    read xd21
+    if(x is odd){
+	    write "odd"
+	}
+	else{
+        write 1xa1
+    }

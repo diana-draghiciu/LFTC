@@ -1,8 +1,0 @@
-p
-r, E
-p,q,r
-a,b
-p,a=r
-p,a=q
-q,a=q
-q,b=r
