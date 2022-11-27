@@ -18,6 +18,7 @@ Structstmt->Forstmt
 Structstmt->Foreachstmt
 Simplstmt->Assignstmt
 Simplstmt->Iostmt
+Simplstmt->Declaration
 Assignstmt->Identifier=Expresion
 Expression->Expression+Term
 Expression->Expression-Term
