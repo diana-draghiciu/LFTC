@@ -27,5 +27,8 @@ Write a program that:
 
 grade = 10: Use FA to detect tokens <identifier> and <integer constant> in the scanner program
 
+#Lab5:
+Implement a parser algorithm: lr(0)
+
 
 
