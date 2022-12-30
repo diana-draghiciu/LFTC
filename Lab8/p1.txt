@@ -1,0 +1,9 @@
+main():
+    int x
+    read x
+    if(x is odd){
+	    write "odd"
+	}
+	else{
+        write x
+    }
