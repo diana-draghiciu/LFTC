@@ -1,0 +1,36 @@
+Reserved word: main
+Separator: (
+Separator: )
+Separator: :
+Reserved word: int[]
+Identifier: x
+Reserved word: read
+Identifier: x
+Reserved word: int
+Identifier: sum
+Identifier: sum
+Separator: =
+Constant: 0
+Reserved word: for
+Separator: (
+Identifier: elem
+Reserved work: in
+Identifier: x
+Separator: )
+Separator: {
+Reserved word: if
+Separator: (
+Identifier: elem
+Reserved word: is
+Reserved word: even
+Separator: )
+Separator: {
+Identifier: sum
+Separator: =
+Identifier: sum
+Operator: +
+Identifier: elem
+Separator: }
+Separator: }
+Reserved word: write
+Identifier: sum

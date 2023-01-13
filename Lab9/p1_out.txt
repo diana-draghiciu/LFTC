@@ -1,0 +1,23 @@
+Reserved word: main
+Separator: (
+Separator: )
+Separator: :
+Reserved word: int
+Identifier: x
+Reserved word: read
+Identifier: x
+Reserved word: if
+Separator: (
+Identifier: x
+Reserved word: is
+Reserved word: odd
+Separator: )
+Separator: {
+Reserved word: write
+Constant: "odd"
+Separator: }
+Reserved word: else
+Separator: {
+Reserved word: write
+Identifier: x
+Separator: }
